@@ -12,12 +12,36 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>What say you?</h1>
-      <section>
-        <form id='sign-up' class='createuser'>
-          <h6>Sign Up!</h6>
-          <input>
+      <h1>Welcome to the Pond!</h1>
+      <div>
+        <section>
+          <form id='sign-up' class='createuser'>
+          <button class='btn btn-primary' type='submit'>Sign Up</button>
+          <input name="credentials[email]" type='text' placeholder='email' class='form-control'>
+          <input name='credentials[password]' type='password' placeholder='password' class='form-control'>
+          <input name='credentials[password_confirmation]' type='password' placeholder='confirm password' class='form-control'>
+        </form>
+        </section>
+
+        <section>
+          <form id='sign-in' class='login createuser'>
+            <button class='btn btn-primary' type='submit'>Log In</button>
+            <input name="credentials[email]" type='text' placeholder='email' class='form-control'>
+            <input name='credentials[password]' type='password' placeholder='password' class='form-control'>
+          </form>
+        </section>
+
+        <section>
+        <form id='change-password' class='passwordchange createuser'>
+          <button class='btn btn-primary' type='submit'>New Password</button>
+          <input name='passwords[old]' type='password' placeholder='Old password' class='form-control'>
+          <input name='passwords[new]' type='password' placeholder='New password' class='form-control'>
         </form>
       </section>
+
+        <section>
+            <button id='logout' class='btn btn-primary' type='submit'>Log Out</button>
+        </section>
+      </div>
     </body>
 </html>

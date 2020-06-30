@@ -1,5 +1,5 @@
 #!/bin/bash
-API="http://localhost:7165"
+API="http://localhost:4741"
 URL_PATH="/change-password"
 
 curl "${API}${URL_PATH}/" \

@@ -47,7 +47,6 @@ const onChangePassword = function (event) {
 
 const onSignOut = function (event) {
   event.preventDefault()
-  store.reset()
   api.signOut()
     .then(ui.onSignOutSuccess)
     .catch(ui.onSignOutFail)

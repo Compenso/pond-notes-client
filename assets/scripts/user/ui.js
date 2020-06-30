@@ -27,10 +27,8 @@ const onSignInSuccess = function (response) {
   $('#message').text('Successful sign in')
   $('#sign-in').hide()
   $('#sign-up').hide()
-  $('#password-change').show()
-  $('#newgame').show()
-  $('#sign-out').show()
   $('#change-password').show()
+  $('#logout').show()
   store.user = response.user
 }
 
@@ -53,13 +51,10 @@ const onChangePasswordFail = function () {
 const onSignOutSuccess = function (response) {
   $('form').trigger('reset')
   $('#message').text('Goodbye!')
+  $('#sign-up').show()
   $('#sign-in').show()
   $('#change-password').hide()
-  $('.board').hide()
-  $('.idofgame').hide()
-  $('#newgame').hide()
-  $('#sign-out').hide()
-  // $('#message').addClass('success')
+  $('#logout').hide()
   store.user = null
 }
 

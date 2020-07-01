@@ -6,6 +6,7 @@
 // use require without a reference to ensure a file is bundled
 // require('./example')
 const userEvent = require('./user/events')
+const postEvent = require('./post/events')
 
 $(() => {
   $('#sign-up').on('submit', userEvent.onSignUp)
@@ -14,4 +15,6 @@ $(() => {
   $('#change-password').on('submit', userEvent.onChangePassword)
   $('#logout').hide()
   $('#logout').on('click', userEvent.onSignOut)
+  $('.container').hide()
+  $('')
 })

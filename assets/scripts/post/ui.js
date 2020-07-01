@@ -31,6 +31,7 @@ const onSignInSuccess = function (response) {
   $('#newgame').show()
   $('#sign-out').show()
   $('#change-password').show()
+  $('.container').show()
   store.user = response.user
 }
 

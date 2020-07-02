@@ -51,37 +51,33 @@
     <div class='row'>
       <div class='col-sm myboarder'>
         <h2>User Feed</h2>
+        <button id='get-user-posts' class="btn btn-primary btn-sm">All The Posts</button>
+        <h5 id='post-title'></h5>
+        <h6 id='post-content'></h6>
+        <div id='content' class='content'></div>
       </div>
 
       <div class='col-sm myboarder'>
-        <h2 id='global'>Global Feed</h2>
-        <div class="input-group input-group-sm mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Title</span>
-          </div>
-          <input type="text" class="form-control post-title" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-        </div>
-
-        <!-- <div class="input-group mb-3">
+        <h2 id='global'>User Post</h2>
+        <form id='create-post' class='create-post'>
+          <div class="input-group input-group-sm mb-3">
             <div class="input-group-prepend">
-            <span class="input-group-text">Upload</span>
+              <span class="input-group-text" id="inputGroup-sizing-sm">Title</span>
+            </div>
+            <input type="text" name=post[title] class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
           </div>
-          <div class="custom-file">
-            <input type="file" class="custom-file-input" id="inputGroupFile01">
-            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-          </div>
-        </div> -->
 
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Write it down.</span>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Write it down.</span>
+            </div>
+            <textarea name=post[content] class="form-control" aria-label="With textarea" placeholder='Put your thoughts into writing'></textarea>
           </div>
-          <textarea class="form-control post-content" aria-label="With textarea"></textarea>
-        </div>
 
-        <div>
-          <button type="button" class="btn btn-primary btn-lg post-button">Let's have it</button>
-        </div>
+          <div>
+            <button type="submit" class="btn btn-primary btn-lg post-button">Let's have it</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>

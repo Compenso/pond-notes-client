@@ -28,6 +28,7 @@ const onSignIn = function (event) {
 
   const form = event.target
   const data = getFormFields(form)
+  console.log('here at the sign in event', data)
 
   api.signIn(data)
     .then(ui.onSignInSuccess)

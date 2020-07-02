@@ -1,63 +1,34 @@
 'use strict'
-
+// requier in the api content, ui, getFormFields, and store
 const api = require('./api')
 const ui = require('./ui')
-const store = require('./../store')
-
 const getFormFields = require('../../../lib/get-form-fields.js')
+// const store = require('./../store')
 
-const onSignUp = function (event) {
-  // prevent the webpage from refreshing
-  event.preventDefault()
-
-  const form = event.target
-  const data = getFormFields(form)
-  // console log the data that we are getting from the form field
-  // console.log(data)
-  // console.log('pumkins events center')
-
-  // the api is the next step, but we're addressing it below.
-  api.signUp(data)
-    .then(ui.signUpSuccess)
-    .catch(ui.signUpFail)
-}
-
-const onSignIn = function (event) {
-  // console.log('didja get here')
+const onCreatePost = (event) => {
   event.preventDefault()
 
   const form = event.target
   const data = getFormFields(form)
 
-  api.signIn(data)
-    .then(ui.onSignInSuccess)
-    .catch(ui.onSignInFail)
+  api.newPost(data)
+    .then(ui.newPostSuccess)
+    .catch(ui.newPostFail)
 }
 
-const onChangePassword = function (event) {
-  // console.log('Well, have you made it to the password event file?')
+const onGetPosts = (event) => {
+  console.log('line 20 events', event, event.target)
   event.preventDefault()
-
-  const form = event.target
-  const data = getFormFields(form)
-  api.changePassword(data)
-    .then(ui.onChangePasswordSuccess)
-    .catch(ui.onChangePasswordFail)
+  api.getPosts()
+    .then(ui.getPostsSuccess)
+    .catch(ui.getPostsFail)
 }
 
-const onSignOut = function (event) {
-  event.preventDefault()
-  store.reset()
-  api.signOut()
-    .then(ui.onSignOutSuccess)
-    .catch(ui.onSignOutFail)
+const addHandlerBar = () => {
+  $('#get-user-posts').on('click', onGetPosts)
 }
-
-// console.log('Here we go.')
 
 module.exports = {
-  onSignUp: onSignUp,
-  onSignIn: onSignIn,
-  onChangePassword: onChangePassword,
-  onSignOut: onSignOut
+  onCreatePost: onCreatePost,
+  addHandlerBar: addHandlerBar
 }

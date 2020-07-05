@@ -2,14 +2,13 @@
 const store = require('./../store.js')
 
 const signUpSuccess = function (response) {
-  // console.log('what is responseData', response)
+  // console.log('what is responseData', response.email)
   $('form').trigger('reset')
   $('#message').text('User Created')
   $('#message').show()
 
   const newUser = (`
-    <h4>userName: ${response.email}</h4>
-    <p>Password: ${response._id}</p>
+    <h4>userName: ${response.user.email}</h4>
     <br>
     `)
   $('#sign-up').html(newUser)
@@ -24,7 +23,7 @@ const signUpFail = function () {
 
 const onSignInSuccess = function (response) {
   $('form').trigger('reset')
-  $('#message').text('Successful sign in')
+  $('#message').text('Yo, welcome back.')
   $('#sign-in').hide()
   $('#sign-up').hide()
   $('#change-password').show()
@@ -35,7 +34,7 @@ const onSignInSuccess = function (response) {
 
 const onSignInFail = function () {
   $('form').trigger('reset')
-  $('#message').text('Check your password')
+  $('#message').text('Yo, wrong-o. Try again.')
 }
 
 const onChangePasswordSuccess = function (response) {

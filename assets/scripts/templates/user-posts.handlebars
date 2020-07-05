@@ -1,7 +1,6 @@
 {{#each posts as |post|}}
   {{log post}}
-  <section data-id="{{post.id}}">
-    <h6>Title:</h6>
+  <section data-id="{{post._id}}">
     <h3>
       {{limit post.title 15}}
     </h3>
@@ -12,6 +11,7 @@
         No Post Content.
         {{/if}}
       </p>
+      <button class="remove-post btn btn-danger btn-sm" data-id="{{post._id}}">Delete</button>
     </section>
 
   {{/each}}

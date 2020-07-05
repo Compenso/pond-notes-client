@@ -24,8 +24,25 @@ const onGetPosts = (event) => {
     .catch(ui.getPostsFail)
 }
 
+const onDeletePost = (event) => {
+  // print our target  our delete button
+  console.log('line 28 events', event.target)
+  // prevent the default
+  event.preventDefault()
+  // set the id as a variable
+  // point it to the event target's data-id and get the id as a string
+  const id = $(event.target).data('id')
+  console.log(id, 'line 35')
+  api.deletePost(id)
+    .then(function () {
+      onGetPosts(event)
+    })
+    .catch(ui.deletePostFail)
+}
+
 const addHandlerBar = () => {
   $('#get-user-posts').on('click', onGetPosts)
+  $('.content').on('click', '.remove-post', onDeletePost)
 }
 
 module.exports = {

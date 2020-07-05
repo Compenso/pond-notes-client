@@ -16,7 +16,13 @@ const getPostsSuccess = (response) => {
   $('.content').append(showPostsHtml)
 }
 
+const deletePostSuccess = (id) => {
+  $(`[data-id='${id}']`).remove()
+  $('.content').trigger('reset')
+}
+
 module.exports = {
   newPostSuccess: newPostSuccess,
-  getPostsSuccess: getPostsSuccess
+  getPostsSuccess: getPostsSuccess,
+  deletePostSuccess: deletePostSuccess
 }

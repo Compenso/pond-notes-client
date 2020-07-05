@@ -38,8 +38,20 @@ const deletePost = function (postId) {
   })
 }
 
+const updatePost = function (postData, id) {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/post/' + id,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: postData
+  })
+}
+
 module.exports = {
   newPost: newPost,
   getPosts: getPosts,
-  deletePost: deletePost
+  deletePost: deletePost,
+  updatePost: updatePost
 }

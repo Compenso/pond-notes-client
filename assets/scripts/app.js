@@ -16,6 +16,8 @@ $(() => {
   $('#logout').hide()
   $('#logout').on('click', userEvent.onSignOut)
   $('.container').hide()
+  $('#update-form').hide()
+  $('#update-form').on('submit', postEvent.onPostForm)
   $('#create-post').on('submit', postEvent.onCreatePost)
   postEvent.addHandlerBar()
 })

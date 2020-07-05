@@ -3,6 +3,7 @@
 const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields.js')
+const store = require('./../store')
 // const store = require('./../store')
 
 const onCreatePost = (event) => {
@@ -34,18 +35,40 @@ const onDeletePost = (event) => {
   const id = $(event.target).data('id')
   console.log(id, 'line 35')
   api.deletePost(id)
-    .then(function () {
-      onGetPosts(event)
-    })
+    .then(() => ui.deletePostSuccess(id))
     .catch(ui.deletePostFail)
+}
+
+const onPostUpdate = (event) => {
+  console.log('line 42 events', event.target)
+  event.preventDefault()
+  $('#create-post').hide()
+  $('#update-form').show()
+  // const id = $(event.target).data('id')
+  store.postId = $(event.target).data('id')
+}
+
+const onPostForm = (event) => {
+  console.log('line 48')
+  event.preventDefault()
+
+  const form = event.target
+  const data = getFormFields(form)
+  console.log(data, 'line 54')
+
+  api.updatePost(data, store.postId)
+    .then(ui.updatePostSuccess)
+    .catch(console.error)
 }
 
 const addHandlerBar = () => {
   $('#get-user-posts').on('click', onGetPosts)
   $('.content').on('click', '.remove-post', onDeletePost)
+  $('.content').on('click', '.edit-post', onPostUpdate)
 }
 
 module.exports = {
   onCreatePost: onCreatePost,
-  addHandlerBar: addHandlerBar
+  addHandlerBar: addHandlerBar,
+  onPostForm: onPostForm
 }

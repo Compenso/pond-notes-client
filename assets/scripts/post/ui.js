@@ -10,19 +10,25 @@ const newPostSuccess = (response) => {
 }
 
 const getPostsSuccess = (response) => {
-  store.post = response.post
-  console.log(store.post)
   const showPostsHtml = showPostsTemplate({ posts: response.posts })
+  $('.content').html('')
   $('.content').append(showPostsHtml)
 }
 
 const deletePostSuccess = (id) => {
   $(`[data-id='${id}']`).remove()
-  $('.content').trigger('reset')
+}
+
+const updatePostSuccess = () => {
+  $('form').trigger('reset')
+  $('#update-form').hide()
+  $('#create-post').show()
+  store.postId = null
 }
 
 module.exports = {
   newPostSuccess: newPostSuccess,
   getPostsSuccess: getPostsSuccess,
-  deletePostSuccess: deletePostSuccess
+  deletePostSuccess: deletePostSuccess,
+  updatePostSuccess: updatePostSuccess
 }

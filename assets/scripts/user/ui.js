@@ -55,10 +55,12 @@ const onChangePasswordFail = function () {
 const onSignOutSuccess = function (response) {
   $('form').trigger('reset')
   $('#message').text('Goodbye!')
-  $('#sign-up').show()
   $('#loginHold').show()
   $('#change-password').hide()
   $('#logout').hide()
+  $('#join').show()
+  $('#triangle').hide()
+  $('.container').hide()
   store.user = null
 }
 

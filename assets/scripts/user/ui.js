@@ -4,8 +4,10 @@ const store = require('./../store.js')
 const signUpSuccess = function (response) {
   // console.log('what is responseData', response.email)
   $('form').trigger('reset')
-  $('#message').text('User Created')
+  $('#message').text('Pond Time!')
   $('#message').show()
+  $('#sign-in').show()
+  $('#loginHold').hide()
 
   const newUser = (`
     <h4>userName: ${response.user.email}</h4>
@@ -26,7 +28,8 @@ const onSignInSuccess = function (response) {
   $('#message').text('Yo, welcome back.')
   $('#sign-in').hide()
   $('#sign-up').hide()
-  $('#change-password').show()
+  $('#triangle').show()
+  // $('#change-password').show()
   $('#logout').show()
   $('.container').show()
   store.user = response.user
@@ -39,8 +42,9 @@ const onSignInFail = function () {
 
 const onChangePasswordSuccess = function (response) {
   $('form').trigger('reset')
-  $('#message').text('Password Updated')
+  $('#message').text('Cool, now go post something!')
   $('#change-password').hide()
+  $('#triangle').show()
 }
 
 const onChangePasswordFail = function () {
@@ -52,7 +56,7 @@ const onSignOutSuccess = function (response) {
   $('form').trigger('reset')
   $('#message').text('Goodbye!')
   $('#sign-up').show()
-  $('#sign-in').show()
+  $('#loginHold').show()
   $('#change-password').hide()
   $('#logout').hide()
   store.user = null

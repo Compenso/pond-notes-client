@@ -34,6 +34,20 @@ const onSignIn = function (event) {
     .then(ui.onSignInSuccess)
     .catch(ui.onSignInFail)
 }
+const hideShow = function (event) {
+  $('#change-password').show()
+  $('#triangle').hide()
+}
+
+const logInShow = (event) => {
+  $('#sign-in').show()
+  $('#loginHold').hide()
+}
+
+const join = (event) => {
+  $('#sign-up').show()
+  $('#join').hide()
+}
 
 const onChangePassword = function (event) {
   // console.log('Well, have you made it to the password event file?')
@@ -59,5 +73,8 @@ module.exports = {
   onSignUp: onSignUp,
   onSignIn: onSignIn,
   onChangePassword: onChangePassword,
-  onSignOut: onSignOut
+  onSignOut: onSignOut,
+  hideShow: hideShow,
+  logInShow: logInShow,
+  join: join
 }

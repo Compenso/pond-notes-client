@@ -42,6 +42,7 @@ const hideShow = function (event) {
 const logInShow = (event) => {
   $('#sign-in').show()
   $('#loginHold').hide()
+  $('#sign-up').hide()
 }
 
 const join = (event) => {

@@ -27,9 +27,9 @@ const onSignInSuccess = function (response) {
   $('form').trigger('reset')
   $('#message').text('Yo, welcome back.')
   $('#sign-in').hide()
+  $('#join').hide()
   $('#sign-up').hide()
   $('#triangle').show()
-  // $('#change-password').show()
   $('#logout').show()
   $('.container').show()
   store.user = response.user

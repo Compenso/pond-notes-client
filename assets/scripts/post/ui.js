@@ -9,6 +9,12 @@ const newPostSuccess = (response) => {
   $('#post-content').text(response.post.content)
 }
 
+const commentSuccess = (response) => {
+  store.comment = response.comment
+  $('form').trigger('reset')
+  $('#comment-post').text(response.comment.comment)
+}
+
 const getPostsSuccess = (response) => {
   const showPostsHtml = showPostsTemplate({ posts: response.posts })
   $('.content').html('')
@@ -30,5 +36,6 @@ module.exports = {
   newPostSuccess: newPostSuccess,
   getPostsSuccess: getPostsSuccess,
   deletePostSuccess: deletePostSuccess,
-  updatePostSuccess: updatePostSuccess
+  updatePostSuccess: updatePostSuccess,
+  commentSuccess: commentSuccess
 }

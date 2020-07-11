@@ -13,6 +13,17 @@ const newPost = (data) => {
   })
 }
 
+const commentPost = (data) => {
+  return $.ajax({
+    method: 'POST',
+    url: config.apiUrl + '/comment',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data
+  })
+}
+
 const getPosts = function () {
   console.log('here at the api', store.user)
   // store.user.post won't work because the user hasn't logged in yet
@@ -27,8 +38,6 @@ const getPosts = function () {
 }
 
 const deletePost = function (postId) {
-  console.log('api 29', postId)
-  console.log('hello no id.')
   return $.ajax({
     method: 'DELETE',
     url: config.apiUrl + '/post/' + postId,
@@ -53,5 +62,6 @@ module.exports = {
   newPost: newPost,
   getPosts: getPosts,
   deletePost: deletePost,
-  updatePost: updatePost
+  updatePost: updatePost,
+  commentPost: commentPost
 }

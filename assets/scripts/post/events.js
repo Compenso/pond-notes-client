@@ -49,14 +49,34 @@ const onPostForm = (event) => {
     .catch(console.error)
 }
 
+const onCommentForm = (event) => {
+  event.preventDefault()
+  $('#create-post').hide()
+  $('#comment-form').show()
+  // store.postId = $(event.target).data('id')
+}
+
+const onCreateComment = (event) => {
+  event.preventDefault()
+
+  const form = event.target
+  const data = getFormFields(form)
+
+  api.commentPost(data)
+    .then(ui.commentSuccess)
+    .catch(console.error)
+}
+
 const addHandlerBar = () => {
   $('#get-user-posts').on('click', onGetPosts)
   $('.content').on('click', '.remove-post', onDeletePost)
   $('.content').on('click', '.edit-post', onPostUpdate)
+  $('.content').on('click', '.comment', onCommentForm)
 }
 
 module.exports = {
   onCreatePost: onCreatePost,
   addHandlerBar: addHandlerBar,
-  onPostForm: onPostForm
+  onPostForm: onPostForm,
+  onCreateComment: onCreateComment
 }

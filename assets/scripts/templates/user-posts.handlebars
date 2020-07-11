@@ -9,8 +9,16 @@
         {{post.content}}
       {{else}}
         No Post Content.
+      {{/if}}
+      <section data-id="{{comment._id}}">
+      {{#if comment.comment}}
+        {{comment.comment}}
+        {{else}}
+          No Comments.
         {{/if}}
+      </section>
       </p>
+      <button class="comment btn btn-danger btn-sm" data-id="{{comment._id}}">Comment</button>
       <button class="edit-post btn btn-danger btn-sm" data-id="{{post._id}}">Edit</button>
       <button class="remove-post btn btn-danger btn-sm" data-id="{{post._id}}">Delete</button>
     </section>

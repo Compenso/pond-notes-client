@@ -18,6 +18,8 @@ $(() => {
   $('.container').hide()
   $('#update-form').hide()
   $('#update-form').on('submit', postEvent.onPostForm)
+  $('#comment-form').hide()
+  $('#comment-form').on('submit', postEvent.onCreateComment)
   $('#create-post').on('submit', postEvent.onCreatePost)
   postEvent.addHandlerBar()
 })

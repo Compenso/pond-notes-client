@@ -10,9 +10,13 @@ const newPostSuccess = (response) => {
 }
 
 const commentSuccess = (response) => {
+  console.log(response)
   store.comment = response.comment
   $('form').trigger('reset')
-  $('#comment-post').text(response.comment.comment)
+  $('#comment-post').text(response.comment)
+  $('#comment-form').hide()
+  $('#create-post').show()
+  store.postId = null
 }
 
 const getPostsSuccess = (response) => {

@@ -53,16 +53,17 @@ const onCommentForm = (event) => {
   event.preventDefault()
   $('#create-post').hide()
   $('#comment-form').show()
-  // store.postId = $(event.target).data('id')
+  store.postId = $(event.target).data('id')
 }
 
 const onCreateComment = (event) => {
   event.preventDefault()
-
+  console.log('buggers are gross')
   const form = event.target
   const data = getFormFields(form)
-
-  api.commentPost(data)
+  console.log(data)
+  console.log(store.postId)
+  api.commentPost(data, store.postId)
     .then(ui.commentSuccess)
     .catch(console.error)
 }

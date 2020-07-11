@@ -10,15 +10,19 @@
       {{else}}
         No Post Content.
       {{/if}}
+    </p>
       <section data-id="{{comment._id}}">
+        {{#each post.comments as |comment|}}
+      <p>
       {{#if comment.comment}}
         {{comment.comment}}
         {{else}}
           No Comments.
         {{/if}}
+        {{/each}}
       </section>
       </p>
-      <button class="comment btn btn-danger btn-sm" data-id="{{comment._id}}">Comment</button>
+      <button class="comment btn btn-danger btn-sm" data-id="{{post._id}}">Comment</button>
       <button class="edit-post btn btn-danger btn-sm" data-id="{{post._id}}">Edit</button>
       <button class="remove-post btn btn-danger btn-sm" data-id="{{post._id}}">Delete</button>
     </section>

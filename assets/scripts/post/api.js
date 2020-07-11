@@ -13,10 +13,10 @@ const newPost = (data) => {
   })
 }
 
-const commentPost = (data) => {
+const commentPost = (data, id) => {
   return $.ajax({
     method: 'POST',
-    url: config.apiUrl + '/comment',
+    url: config.apiUrl + '/comment/' + id,
     headers: {
       Authorization: 'Bearer ' + store.user.token
     },
@@ -25,9 +25,6 @@ const commentPost = (data) => {
 }
 
 const getPosts = function () {
-  console.log('here at the api', store.user)
-  // store.user.post won't work because the user hasn't logged in yet
-  // console.log('api', store.user.post)
   return $.ajax({
     method: 'GET',
     url: config.apiUrl + '/post',

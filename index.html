@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>the Pond note</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <h1>Welcome to the Pond!</h1>
+  <h2 id='message'></h2>
+  <div>
+    <section>
+      <form id='sign-up' class='createuser'>
+        <button class='btn btn-primary' type='submit'>Sign Up Here</button>
+        <input name="credentials[email]" type='text' placeholder='email' class='form-control'>
+        <input name='credentials[password]' type='password' placeholder='password' class='form-control'>
+        <input name='credentials[password_confirmation]' type='password' placeholder='confirm password' class='form-control'>
+      </form>
+      <button id='join' class='btn btn-primary btn-sm'>Join</button>
+    </section>
+
+    <section>
+      <form id='sign-in' class='login createuser'>
+        <button class='btn btn-primary' type='submit'>Log In</button>
+        <input name="credentials[email]" type='text' placeholder='email' class='form-control'>
+        <input name='credentials[password]' type='password' placeholder='password' class='form-control'>
+      </form>
+      <button id='loginHold' class='btn btn-primary btn-sm'>Log In</button>
+    </section>
+
+    <section>
+      <form id='change-password' class='passwordchange createuser'>
+        <button class='btn btn-primary' type='submit'>∆ Password</button>
+        <input name='passwords[old]' type='password' placeholder='Old password' class='form-control'>
+        <input name='passwords[new]' type='password' placeholder='New password' class='form-control'>
+      </form>
+      <button id='triangle' class='btn btn-primary btn-sm'>∆ Password</button>
+    </section>
+
+    <section>
+      <button id='logout' class='btn btn-primary' type='submit'>Log Out</button>
+    </section>
+  </div>
+
+  <div class='container'>
+    <div class='row'>
+      <div class='col-sm myboarder'>
+        <h2>Mill</h2>
+        <button id='get-user-posts' class="btn btn-primary btn-sm">All The Posts</button>
+        <h5 id='post-title'></h5>
+        <h6 id='post-content'></h6>
+        <h6 id='comment-post'></h6>
+        <main>
+          <div id='content' class='content'></div>
+        </main>
+      </div>
+
+      <div class='col-sm myboarder'>
+        <h2 id='global'>User Post</h2>
+        <form id='create-post' class='create-post'>
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Title</span>
+            </div>
+            <input type="text" name=post[title] class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+          </div>
+
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Write it down.</span>
+            </div>
+            <textarea name=post[content] class="form-control" aria-label="With textarea" placeholder='Put your thoughts into writing'></textarea>
+          </div>
+
+          <div>
+            <button type="submit" class="btn btn-primary btn-lg post-button">Let's have it</button>
+          </div>
+        </form>
+        <form id='update-form'>
+          <input name="post[title]" type="text" placeholder="Title" required>
+          <input name="post[content]" type="text" placeholder="Content" required>
+          <button id='patch' class="btn btn-primary btn-sm" type="submit">Submit Changes</button>
+        </form>
+        <form id='comment-form'>
+          <input name="comment[comment]" type="text" placeholder="Content" required>
+          <button id='comment' class="btn btn-primary btn-sm" type="submit">Comment</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
